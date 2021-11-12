@@ -12,25 +12,33 @@
                 <div class="col-xl-8 col-lg-10 col-12 stagger-animation">
                     <div class="about flex align-items-center">
                         <img class="anim-item profile-picture
-                                align-self-start" src="{% get_media_prefix %}{{ link.image }}" alt="Asliddin" />
+                                align-self-start" src="{% get_media_prefix %}{{ link.image }}" alt="a" />
                         <div class="about-detail anim-item">
                             <h1 class="title">Asliddin Kamoliddinov</h1>
                             <h3 class="desc">Beckend Developer</h3>
                             <div class="social-links flex
                                     align-items-center">
-                                <a class="icon-youtube" target="_blank" href="">
-                                    <img src="{% static '/static/assets/images/icons/youtube.svg' %}" width="26" />
+                                <a class="icon-youtube" target="_blank" href="https://www.youtube.com/">
+                                    <i class="fab fa-youtube"></i>
                                 </a>
-                                <a class="icon-github" target="_blank" href="https://github.com/asliddin3101"></a>
-                                <a class="icon-linkedin" target="_blank" href="https://linkedin.com/in/azimjondev/">
-                                    <img src="{% static '/static/assets/images/icons/linkedin.svg' %}" width="22" />
+                                <a  target="_blank" href="https://t.me/developer_beckend">
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+                                <a  target="_blank" href="https://www.instagram.com/asliddin_beckend_developer">
+                                    <i class="fab fa-instagram-square"></i>
+                                </a>
+                                <a  target="_blank" href="https://github.com/asliddin3101">
+                                    <i class="fab fa-github-square"></i>
+                                </a>
+                                <a  target="_blank" href="https://www.facebook.com/asliddin.kamoliddinov.7">
+                                    <i class="fab fa-facebook"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
 
                     <div class="detail">
-                        <p class="size-big anim-item">I write about non-technical stuff in the technical world.</p>
+                        <p class="size-big anim-item">I write about truth and my life experiences and my field.</p>
                         <div class="btns-wrapper anim-item">
                             <a href="{% url 'index' %}" class="btn btn-primary">Read Blog</a>
                             <a href="{% url 'about' %}" class="btn btn-secondary">About Me</a>

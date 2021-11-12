@@ -22,6 +22,7 @@ def detail(request, pk):
 
 def about(request):
     post = AboutMe.objects.all().first()
+    print(post)
     context = {
         "post":post,
     }
@@ -30,6 +31,7 @@ def about(request):
 
 def profil(request):
     link = Profil.objects.all()
+    print(link)
     context = {
         "link":link,
     }

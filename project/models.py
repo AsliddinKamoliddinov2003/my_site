@@ -7,7 +7,6 @@ from ckeditor_uploader.fields import RichTextUploadingField
 class Blog(models.Model):
     title = models.CharField(max_length=255)
     body = RichTextUploadingField(blank=True, null=True)
-    image = models.ImageField(upload_to="images/", null=True)
     
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -18,7 +17,6 @@ class Blog(models.Model):
 
 class AboutMe(models.Model):
     body = RichTextUploadingField(blank=True, null=True)
-    image = models.ImageField(upload_to="images/", null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

@@ -13,11 +13,9 @@
     <section class="flex align-items-center">
         <div class="container">
             <div class="row article-wrapper justify-center align-top">
-                <div class="article-header col-md-6">
+                <div class="article-header col-md-8">
                     <h1 class="title">{{post.title}}</h1>
-                    <li>
-                        <img style="width: 300px;" src="{% get_media_prefix %}{{post.image}}" alt="">
-                    </li>
+                    
                     <div class="date">
                         <span>{{post.created_at}}</span>
                     </div>
@@ -26,7 +24,6 @@
                 <article class="content col-md-8 col-12">
                     <a>{{post.body | safe}}</a>
                 </article>
-
 
                 <div class="div col-lg-7 col-md-8 col-12">
                     <div class="subscribe-form " id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
@@ -48,7 +45,7 @@
 
                         </li>
 
-                        <li class="col"><a href="/blog/">See More</a></li>
+                        <li class="col"><a href="{% url 'index' %}">See More</a></li>
 
                         <li class="col next">
 
