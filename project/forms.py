@@ -1,7 +1,19 @@
-from django.forms import ModelForm, fields
-from .models import Blog
+from django import forms
+from django.forms import fields
 
-class Post(ModelForm):
+from project.models import Blog
+
+
+
+class BlogForm(forms.ModelForm):
     class Meta:
         model = Blog
-        fields = ['body']
+        fields = ["title", "body"]
+
+    def __init__(self, *args, **kwargs):
+        super(BlogForm,self).__init__(*args, **kwargs)
+
+        for field in self.fields:
+            self.fields[field].widget.attrs["class"] = "form-control"
+
+

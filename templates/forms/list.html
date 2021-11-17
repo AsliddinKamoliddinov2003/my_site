@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+
+<body>
+    <header class="header--title flex align-items-center">
+        <div class="container">
+            <div class="align-items-center flex">
+                <div class="logo-wrapper">
+                    <a class="logo" href="{% url 'profil' %}">Asliddin's Blog</a>
+                </div>
+                <ul class="nav align-items-center">
+                    <li><a class="list-item" href="{% url 'create-blog' %}">Add blogs</a></li>
+                    <li><a class="list-item" href="{% url 'index' %}"target="_blank">Home</a></li>
+                </ul>
+                <div class="burger-menu">
+                    <div class="bar bar--top"></div>
+                    <div class="bar bar--middle"></div>
+                    <div class="bar bar--bottom"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+<br>
+<br>
+<br>
+    <div class="container mt-4">
+        <table class="table">
+            <thead>
+                <tr style="text-align: center;">
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Body</th>
+                    <th scope="col">Created at</th>
+                    <th scope="col">Updated at</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for blog in blogs %}
+                <tr style="text-align: center;">
+                    <th scope="row">{{blog.id}}</th>
+                    <td>{{blog.title|truncatechars:20}}</td>
+                    <td>{{blog.body| safe | truncatechars:40}}</td>
+                    <td>{{blog.created_at}}</td>
+                    <td>{{blog.updated_at}}</td>
+                    <td>
+                        <a href="{% url 'update-blog' pk=blog.id %}" class="btn btn-info btn-sm">
+                            Update
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'delete-blog' pk=post.id %}" class="btn btn-danger btn-sm">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+{% endblock main %}

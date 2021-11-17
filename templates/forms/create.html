@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+
+<body>
+    <header class="header--title flex align-items-center">
+        <div class="container">
+            <div class="align-items-center flex">
+                <div class="logo-wrapper">
+                    <a class="logo" href="{% url 'profil' %}">Asliddin's Blog</a>
+                </div>
+                <ul class="nav align-items-center">
+                    <li><a class="list-item" href="{% url 'list' %}">Blogs</a></li>
+                    <li><a class="list-item" href="{% url 'index' %}"target="_blank">Home</a></li>
+                </ul>
+                <div class="burger-menu">
+                    <div class="bar bar--top"></div>
+                    <div class="bar bar--middle"></div>
+                    <div class="bar bar--bottom"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <br>
+    <br>
+    <br>
+
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-10 offset-1">
+                <h3>Add blog</h3>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form.media}}
+                    {{form.as_p}}
+                    <input type="submit" class="btn btn-outline-success" value="Save">
+                    <input type="reset" class="btn btn-outline-info" value="Cancel">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+{% endblock main %}

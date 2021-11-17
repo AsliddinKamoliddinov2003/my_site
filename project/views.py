@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
+from project.forms import BlogForm
 from .models import *
 
 
@@ -59,3 +60,55 @@ def about(request):
 
 def profil(request):
     return render(request, "profil.html")
+
+
+def list(request):
+    blogs = Blog.objects.all()
+    context = {
+        "blogs":blogs,
+    }
+    return render(request, "forms/list.html", context)
+
+
+def createblog(request):
+    form = BlogForm()
+    if request.method=="POST":
+        form = BlogForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse("list"))
+    context = {
+        "form":form
+    }
+    return render(request, "forms/create.html", context)
+
+
+def updateblog(request, pk):
+    blog = Blog.objects.filter(id=pk)
+    if not blog.exists():
+        return redirect(reverse("list"))
+    else:
+        blog = blog.first()
+    form = BlogForm(instance=blog)
+
+    if request.method=="POST":
+        form = BlogForm(request.POST, request.FILES, instance = blog)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse("list"))
+    context = {
+        "form":form
+    }
+    return render(request, "forms/update.html", context)
+
+
+def deleteblog(request, pk):
+    try:
+        blog = Blog.objects.filter(id=pk)
+        blog.delete()
+    except:
+        pass
+    return redirect(reverse("list"))
+
+
+
