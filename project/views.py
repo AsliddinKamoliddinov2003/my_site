@@ -104,9 +104,9 @@ def updateblog(request, pk):
 
 def deleteblog(request, pk):
     try:
-        blog = Blog.objects.filter(id=pk)
+        blog = Blog.objects.get(id=pk)
         blog.delete()
-    except:
+    except Blog.DoesNotExist:
         pass
     return redirect(reverse("list"))
 

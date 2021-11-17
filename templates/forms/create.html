@@ -3,28 +3,22 @@
 {% block main %}
 
 <body>
-    <header class="header--title flex align-items-center">
-        <div class="container">
-            <div class="align-items-center flex">
-                <div class="logo-wrapper">
-                    <a class="logo" href="{% url 'profil' %}">Asliddin's Blog</a>
-                </div>
-                <ul class="nav align-items-center">
-                    <li><a class="list-item" href="{% url 'list' %}">Blogs</a></li>
-                    <li><a class="list-item" href="{% url 'index' %}"target="_blank">Home</a></li>
-                </ul>
-                <div class="burger-menu">
-                    <div class="bar bar--top"></div>
-                    <div class="bar bar--middle"></div>
-                    <div class="bar bar--bottom"></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'profil' %}">Asliddin's Blog</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'list' %}">Blogs</a>
                 </div>
             </div>
         </div>
-    </header>
+    </nav>
     <br>
-    <br>
-    <br>
-
     <div class="container">
         <div class="row mt-4">
             <div class="col-10 offset-1">
@@ -39,6 +33,7 @@
             </div>
         </div>
     </div>
-
+    <br>
+    <br>
 </body>
 {% endblock main %}

@@ -5,6 +5,9 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Blog(models.Model):
+    class Meta:
+        verbose_name = "Blog"
+        verbose_name_plural = "Blogs"
     title = models.CharField(max_length=255)
     body = RichTextUploadingField(blank=True, null=True)
     
@@ -16,6 +19,9 @@ class Blog(models.Model):
 
 
 class AboutMe(models.Model):
+    class Meta:
+        verbose_name = "About me"
+        verbose_name_plural = "About me"
     body = RichTextUploadingField(blank=True, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
