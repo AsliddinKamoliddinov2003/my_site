@@ -375,9 +375,9 @@ footer p {
   margin-bottom: 35px;
 }
 #home .profile-picture {
-  max-width: 140px;
+  max-width: 100px;
   margin-right: 40px;
-  border-radius: 50%;
+  border-radius: 10%;
 }
 @media (max-width: 767.98px) {
   #home .profile-picture {

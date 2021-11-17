@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from django.urls import reverse
 
 from .models import *
 
@@ -11,12 +12,39 @@ def index(request):
     return render(request, "index.html", context)
 
 
-
 def detail(request, pk):
     post = Blog.objects.get(id=pk)
     context = {
         "post":post
     }
+    return render(request, "detail.html", context)
+
+
+def nextdetail(request, pk):
+    pk = pk + 1 
+    post = Blog.objects.filter(id=pk)
+    if post.exists():
+        post = Blog.objects.get(id=pk)
+        if post:
+            context = {
+                "post":post
+            }
+    else:
+        return redirect(reverse("index"))
+    return render(request, "detail.html", context)
+
+
+def previousdetail(request, pk):
+    pk = pk - 1 
+    post = Blog.objects.filter(id=pk)
+    if post.exists():
+        post = Blog.objects.get(id=pk)
+        if post:
+            context = {
+                "post":post
+            }
+    else:
+        return redirect(reverse("index"))
     return render(request, "detail.html", context)
 
 
@@ -30,9 +58,4 @@ def about(request):
 
 
 def profil(request):
-    link = Profil.objects.all()
-    print(link)
-    context = {
-        "link":link,
-    }
-    return render(request, "profil.html", context)
+    return render(request, "profil.html")

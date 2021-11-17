@@ -1,8 +1,7 @@
 from django.contrib import admin
 
-from project.models import AboutMe, Blog, Profil
+from project.models import AboutMe, Blog
 
 
 admin.site.register(Blog)
 admin.site.register(AboutMe)
-admin.site.register(Profil)

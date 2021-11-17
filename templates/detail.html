@@ -9,7 +9,7 @@
     <div class="progress-bar">
         <div class="bar"></div>
     </div>
-
+    
     <section class="flex align-items-center">
         <div class="container">
             <div class="row article-wrapper justify-center align-top">
@@ -38,21 +38,17 @@
                 <ul class="custom-pagination col-md-8 col-12">
                     <div class="pagination-list row">
                         <li class="col prev">
-
-                            <a href="/blog/yandexga-topshirish-haqida/" title="Yandex&#x27;ga Topshirish Haqida">
+                            <a href="{% url 'previousdetail' pk=post.id %}" title="">
                                 &larr; Previous
                             </a>
-
                         </li>
 
                         <li class="col"><a href="{% url 'index' %}">See More</a></li>
 
                         <li class="col next">
-
-                            <a href="/blog/yandexga-topshirish-haqida/" title="Yandex&#x27;ga Topshirish Haqida">
+                            <a href="{% url 'nextdetail' pk=post.id %}" title="">
                                 Next &rarr;
                             </a>
-
                         </li>
                     </div>
                 </ul>

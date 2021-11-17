@@ -22,10 +22,3 @@ class AboutMe(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 
-class Profil(models.Model):
-    image = models.ImageField(upload_to="images/", null=True)
-    github_link = models.CharField(max_length=255, null=True)
-    telegram_link = models.CharField(max_length=255, null=True)
-    linkedin_link = models.CharField(max_length=255, null=True)
-    facebook_link = models.CharField(max_length=255, null=True)
-    instagram_link = models.CharField(max_length=255, null=True)
